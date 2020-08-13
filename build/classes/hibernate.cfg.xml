@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/gestion_pv</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <!-- Echo all executed SQL to stdout -->
+  <property name="show_sql">true</property>
+  <!-- Drop and re-create the database schema on startup -->
+  <property name="hbm2ddl.auto">update</property>
+ <mapping resource="beans/Etudiant.hbm.xml"/>
+  <mapping resource="beans/Examan.hbm.xml"/>
+  <mapping resource="beans/Pv.hbm.xml"/>
+  <mapping resource="beans/Senction.hbm.xml"/>
+  <mapping class="beans.Senction"/>
+   <mapping resource="beans/User.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

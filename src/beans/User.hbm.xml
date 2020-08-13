@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31 mai 2017 10:50:31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="beans.User" table="user" catalog="gestion_pv">
+        <id name="idUser" type="java.lang.Integer">
+            <column name="idUser" />
+            <generator class="identity" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="40" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="40" not-null="true" />
+        </property>
+        <property name="travaille" type="string">
+            <column name="travaille" length="40" not-null="true" />
+        </property>
+        <property name="mdp" type="string">
+            <column name="mdp" length="40" not-null="true" />
+        </property>
+        <property name="telephone" type="int">
+            <column name="telephone" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="40" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

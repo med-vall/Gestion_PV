@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 juin 2017 11:38:46 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="beans.Etudiant" table="etudiant" catalog="gestion_pv">
+        <id name="matricule" type="int">
+            <column name="matricule" />
+             <generator class="identity" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="40" not-null="true" />
+        </property>
+        <property name="code" type="int">
+            <column name="code" not-null="true" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="prenom" length="40" not-null="true" />
+        </property>
+        <property name="filieur" type="string">
+            <column name="filieur" length="40" not-null="true" />
+        </property>
+        <property name="dateNissance" type="date">
+            <column name="dateNissance" length="0"  />
+        </property>
+        <set name="pvs" table="pv" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="matricule" />
+            </key>
+            <one-to-many class="beans.Pv" />
+        </set>
+    </class>
+</hibernate-mapping>

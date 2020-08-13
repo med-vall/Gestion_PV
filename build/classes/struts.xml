@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.devMode" value="false" />
+<constant name="struts.action.extension" value="html" />
+<package name="default" extends="struts-default" namespace="/">
+
+<action name="stat" class="controller.PvAction" method="afficherStat">
+            <result name="success">test.jsp</result>
+        </action>  
+<action name="st" class="controller.PvAction" method="afficherParMatr">
+            <result name="success">vue/research.jsp</result>
+        </action>  
+        <action name="redirect" class="controller.PvAction" method="redirect">
+            <result name="success">/vue/AjouterMembre.jsp</result>
+        </action> 
+         <action name="save" class="controller.PvAction" method="save">
+            <result name="success">t2.jsp</result>
+        </action> 
+        <action name="saveEtd" class="controller.EtudiantAction" method="saveEtd">
+            <result name="success">/vue/AjoutPv.jsp</result>
+        </action>
+        <action name="updatePv" class="controller.PvAction" method="updatePv">
+            <result name="success">/vue/updatePv.jsp</result>
+        </action>
+        
+        <action name="updateExaman" class="controller.ExamanAction" method="updateExaman">
+            <result name="success">/vue/updateExm.jsp</result>
+        </action>
+        
+        <action name="savEx" class="controller.ExamanAction" method="savEx">
+            <result name="success">consulter.jsp</result>
+        </action> 
+         <action name="getChef" class="controller.UserAction" method="getChef">
+            <result name="success">chefs.jsp</result>
+        </action>
+         <action name="deletePv" class="controller.PvAction" method="deletePv">
+            <result name="success">consulter.jsp</result>
+        </action> 
+         <action name="getMembres" class="controller.UserAction" method="getMembres">
+            <result name="success">Membres.jsp</result>
+        </action>  
+        <action name="login"
+			class="controller.UserAction" method="auth">
+			<result name="success">/vue/ChefScolaire.jsp</result>
+			
+			<result name="error">Administrer.jsp</result>
+		</action>
+		<action name="save"
+			class="controller.UserAction" method="addUs">
+			<result name="success">index.jsp</result>
+			<result name="error">Login.jsp</result>
+		</action>
+		 
+        <action name="addMembr" class="controller.UserAction" method="addMembr">
+            <result name="success">/vue/ChefScolaire.jsp</result>
+            <result name="input"></result>
+        </action> 
+        <action name="deleteUser" class="controller.UserAction" method="deleteUser">
+            <result name="success">/vue/ChefScolaire.jsp</result>
+            <result name="input"></result>
+        </action>
+        <action name="savPv"
+			class="controller.PvAction" method="savPv">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize"> 429496729500</param>
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg,image/pjpeg
+				</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/vue/AjouterExaman.jsp</result>
+			<result name="input">/vue/AjoutPv.jsp</result>
+		</action>
+            <action name="download" class="controller.DownloadAction" method="down">
+			<result name="success" type="stream">
+            <param name="contentType">image/jpeg</param>
+             <param name="inputName">fileInputStream</param>
+               <param name="contentDisposition">filename="document.jpg"</param>
+
+               <param name="bufferSize">1024</param>
+                </result>
+		</action>
+		<action name="saveUpdate" class="controller.PvAction" method="saveUpdatePv">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize"> 429496729500</param>
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg,image/pjpeg
+				</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/vue/success.jsp</result>
+			<result name="input">/vue/updatePv.jsp</result>
+		</action>
+		 <action name="saveUpdateExam" class="controller.ExamanAction" method="saveUpdateExam">
+            <result name="success">consulter.jsp</result>
+            <result name="input">/vue/updateExm.jsp</result>
+        </action>  
+        
+           
+</package>
+</struts>
